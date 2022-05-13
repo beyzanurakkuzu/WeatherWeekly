@@ -6,27 +6,41 @@ import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-@JsonClass(generateAdapter=true)
+@JsonClass(generateAdapter = true)
 data class Main(
-    @Json(name="temp")
-    val temp:Double?,
-    @Json(name="feels_like")
-    val feels_like:Double?,
-    @Json(name="temp_min")
-    val tempMin:Double?,
-    @Json(name="temp_max")
-    val tempMax:Double?,
-    @Json(name="pressure")
-    val pressure:Double?,
-    @Json(name="humidity")
-    val humidity:Double?
-):Parcelable{
 
+    @Json(name = "temp")
+    val temp: Double?,
+
+    @Json(name = "temp_min")
+    var tempMin: Double?,
+
+    @Json(name = "grnd_level")
+    val grndLevel: Double?,
+
+    @Json(name = "temp_kf")
+    val tempKf: Double?,
+
+    @Json(name = "humidity")
+    val humidity: Int?,
+
+    @Json(name = "pressure")
+    val pressure: Double?,
+
+    @Json(name = "sea_level")
+    val seaLevel: Double?,
+
+    @Json(name = "temp_max")
+    var tempMax: Double?
+) : Parcelable {
 
     fun getTempString(): String {
         return temp.toString().substringBefore(".") + "°"
     }
 
+    fun getHumidityString(): String {
+        return humidity.toString() + "°"
+    }
 
     fun getTempMinString(): String {
         return tempMin.toString().substringBefore(".") + "°"
@@ -35,5 +49,4 @@ data class Main(
     fun getTempMaxString(): String {
         return tempMax.toString().substringBefore(".") + "°"
     }
-
 }
