@@ -8,7 +8,7 @@ import io.reactivex.Single
 class CurrentWeatherRemote @Inject constructor(
     private val api:WeatherApi
 ) {
-    fun getCurrentWeatherByGeoCords(lat:Double,lon:Double,units:String):Single<CurrentWeatherResponse> = api.getCurrentWeatherByGeoCords(
+    fun getCurrentWeatherByGeoCords(lat:Double,lon:Double,units:String):Single<CurrentWeatherResponse> = api.getCurrentByGeoCords(
         lat,lon,units
     )
 }
