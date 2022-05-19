@@ -8,12 +8,12 @@ import com.beyzaakkuzu.weather.db.dao.CurrentWeatherDAO
 import com.beyzaakkuzu.weather.db.dao.ForecastDAO
 import com.beyzaakkuzu.weather.db.entity.CitiesForSearchEntity
 import com.beyzaakkuzu.weather.db.entity.CurrentWeatherEntity
-import com.beyzaakkuzu.weather.db.entity.ForecastEnitity
+import com.beyzaakkuzu.weather.db.entity.ForecastEntity
 import com.beyzaakkuzu.weather.utils.typeConventer.DataConverter
 
 @Database(
     entities = [
-        ForecastEnitity::class,
+        ForecastEntity::class,
     CurrentWeatherEntity::class,
     CitiesForSearchEntity::class
     ]
