@@ -1,8 +1,12 @@
 package com.beyzaakkuzu.weather.utils.extensions
 
+import android.graphics.Typeface
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.TextUtils
+import android.text.style.BackgroundColorSpan
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
 import java.lang.Exception
 
 fun tryCatch(
@@ -23,7 +27,14 @@ fun tryCatch(
 }
 
 fun spannable(func: ()-> SpannableString)= func()
+fun bold(s: CharSequence) = span(s, StyleSpan(Typeface.BOLD))
 
+fun italic(s: CharSequence) = span(s, StyleSpan(Typeface.ITALIC))
+
+
+fun color(color: Int, s: CharSequence) = span(s, ForegroundColorSpan(color))
+
+fun background(color: Int, s: CharSequence) = span(s, BackgroundColorSpan(color))
 private fun span(s: CharSequence, o: Any) = (
         if (s is String) SpannableString(s) else s as? SpannableString
             ?: SpannableString("")

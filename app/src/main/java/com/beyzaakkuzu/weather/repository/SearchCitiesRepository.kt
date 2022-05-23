@@ -20,6 +20,7 @@ class SearchCitiesRepository @Inject constructor(
     private val rateLimiter = RateLimiter<String>(1, TimeUnit.SECONDS)
     fun loadCitiesByCityName(cityName: String?): LiveData<Resource<List<CitiesForSearchEntity>>> {
         return object : NetworkBoundResource<List<CitiesForSearchEntity>, Search>() {
+
             override fun shouldFetch(data: List<CitiesForSearchEntity>): Boolean {
                 return data == null || data.isEmpty()
             }
@@ -30,9 +31,10 @@ class SearchCitiesRepository @Inject constructor(
                 sl.getCityByName(cityName)
 
             override fun onFetchFailed() = rateLimiter.reset(RATE_LIMITER_TYPE)
-            override fun createCall(): Single<Search> {
-                TODO("Not yet implemented")
-            }
+            override fun createCall(): Single<Search> = sr.getCityWithQuery(
+                cityName
+                    ?: ""
+            )
         }.asLiveData
     }
 }

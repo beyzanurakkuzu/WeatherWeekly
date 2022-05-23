@@ -1,4 +1,5 @@
 package com.beyzaakkuzu.weather.core
 
-class BaseViewModel {
-}
+import androidx.lifecycle.ViewModel
+
+open class BaseViewModel: ViewModel()

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewState"
+            type="com.beyzaakkuzu.weather.ui.dashboard.CurrentWeatherViewState" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardView"
+        android:backgroundTint="@{viewState.data.getColor()}"
+        android:fitsSystemWindows="true"
+        android:visibility="@{viewState.isLoading() ? View.INVISIBLE : View.VISIBLE}"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        tools:visibility="invisible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rootView">
+
+            <ImageView
+                android:layout_width="124dp"
+                android:layout_height="124dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="48dp"
+                app:setWeatherIcon="@{viewState.data.getCurrentWeather().icon}"
+                tools:src="@drawable/rainsun" />
+
+            <TextView
+                android:id="@+id/textViewTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="36dp"
+                android:text="@{viewState.data.main.getTempString()}"
+                android:textColor="@color/white"
+                android:textSize="100sp"
+                tools:text="25°" />
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
