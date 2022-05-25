@@ -5,6 +5,7 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'kotlin-parcelize'
 
+
 }
 
 android {
@@ -111,4 +112,10 @@ dependencies {
 
     //retrofit
     implementation("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
-  }
+
+    //angolia search
+    def kotlin_client_version="2.0.0"
+    implementation "com.algolia:algoliasearch-client-kotlin:$kotlin_client_version"
+
+    implementation 'com.google.android.material:material:1.0.0-beta01'
+}

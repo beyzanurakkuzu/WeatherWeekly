@@ -31,12 +31,14 @@
         app:cardElevation="4dp"
         app:strokeColor="@color/mainTextColor"
         app:strokeWidth="1dp">
+
         <androidx.appcompat.widget.SearchView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/searchView"
             android:inputType="text"
             app:defaultQueryHint="@string/start_typing"/>
+
     </com.google.android.material.card.MaterialCardView>
 
         <RelativeLayout

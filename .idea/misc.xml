@@ -3,14 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/drawable/ic_ellipse.xml" value="0.1925" />
         <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/drawable/ic_search.xml" value="0.1955" />
+        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/drawable/ic_splash_big_cloud.xml" value="0.1895" />
+        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/drawable/ic_splash_bottom_drawable.xml" value="0.198" />
+        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/drawable/ic_splash_bottom_drawable_shadow_drawable.xml" value="0.198" />
+        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/drawable/path.xml" value="0.1335652218218338" />
+        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/drawable/splash_bg.xml" value="0.1925" />
         <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/layout/activity_main.xml" value="0.18958333333333333" />
-        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/layout/dashboard_forecast_layout.xml" value="0.21025641025641026" />
+        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/layout/dashboard_forecast_layout.xml" value="0.2086956590966153" />
+        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/layout/forecast_item.xml" value="0.626086977289846" />
+        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/layout/fragment_dashboard.xml" value="0.18365218000502148" />
         <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/layout/fragment_search.xml" value="0.2086956590966153" />
-        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/layout/fragment_splash.xml" value="0.1875" />
-        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/layout/hour_of_day_weather_item.xml" value="0.8347826363864612" />
+        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/layout/fragment_splash.xml" value="0.2086956590966153" />
+        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/layout/fragment_weather_detail.xml" value="0.2086956590966153" />
+        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/layout/hour_of_day_weather_item.xml" value="0.2754782700075322" />
         <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/layout/item_search_result.xml" value="0.18645833333333334" />
-        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/layout/search_result_item.xml" value="0.4173913181932306" />
+        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/layout/search_result_item.xml" value="0.16695652727729227" />
+        <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/layout/weekly_detail_weather.xml" value="0.36270491803278687" />
         <entry key="..\:/Users/abdullah/ProjectMy/WeatherWeekly/app/src/main/res/menu/toolbar_menu.xml" value="0.2754782700075322" />
       </map>
     </option>

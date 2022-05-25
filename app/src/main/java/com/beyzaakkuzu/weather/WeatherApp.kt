@@ -5,6 +5,7 @@ import android.os.Build
 import com.facebook.stetho.Stetho
 import com.jakewharton.threetenabp.AndroidThreeTen
 import dagger.hilt.android.HiltAndroidApp
+import io.reactivex.android.BuildConfig
 import timber.log.Timber
 
 @HiltAndroidApp

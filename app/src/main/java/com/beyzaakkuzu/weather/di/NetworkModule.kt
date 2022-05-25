@@ -54,7 +54,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun providePlacesClient():PlacesClient =
+    fun providePlacesClient(): PlacesClient =
         PlacesClient(
             Constants.AlgoliaKeys.APPLICATION_ID,
             Constants.AlgoliaKeys.SEARCH_API_KEY

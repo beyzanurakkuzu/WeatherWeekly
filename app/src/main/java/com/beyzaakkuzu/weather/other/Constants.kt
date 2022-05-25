@@ -15,7 +15,7 @@ object Constants {
         const val METRIC="metric"
     }
     object AlgoliaKeys {
-        const val APPLICATION_ID = ""
-        const val SEARCH_API_KEY = ""
+        const val APPLICATION_ID = "plNW8IW0YOIN"
+        const val SEARCH_API_KEY = "029766644cb160efa51f2a32284310eb"
     }
 }

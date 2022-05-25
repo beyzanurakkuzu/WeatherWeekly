@@ -1,4 +1,11 @@
 package com.beyzaakkuzu.weather.ui.main
 
-class MainActivityViewModel {
+import androidx.databinding.ObservableField
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+
+@HiltViewModel
+class MainActivityViewModel @Inject  internal constructor(
+    var toolbarTitle:ObservableField<String> = ObservableField()
+){
 }

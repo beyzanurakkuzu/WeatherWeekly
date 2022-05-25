@@ -64,7 +64,7 @@ data class ListItem(
         }
     }
 
-    fun getCardColor(): Int {
+    fun getColor(): Int {
         return when (dt?.let { getDateTime(it) }) {
             DayOfWeek.MONDAY -> Color.parseColor("#4ECB71") //yeşil
             DayOfWeek.TUESDAY -> Color.parseColor("#FF9A62") //turuncu

@@ -10,4 +10,6 @@
     <color name="error">#BF1616</color>
 
     <color name="mainTextColor">#130E51</color>
+    <color name="bg">#48319D</color>
+
 </resources>
