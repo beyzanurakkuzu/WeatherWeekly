@@ -1,9 +1,7 @@
 package com.beyzaakkuzu.weather.db.entity
 
-import android.os.CountDownTimer
 import android.os.Parcelable
 import android.text.SpannableString
-import android.text.SpannedString
 import androidx.room.*
 import com.beyzaakkuzu.weather.domain.model.HitsItem
 import com.beyzaakkuzu.weather.utils.extensions.bold

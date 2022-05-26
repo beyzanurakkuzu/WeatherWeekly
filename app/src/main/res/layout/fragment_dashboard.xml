@@ -73,7 +73,7 @@
                     android:layout_marginEnd="8dp"
                     android:orientation="horizontal"
                     tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/forecast_item" />
+                    tools:listitem="@layout/hour_of_day_weather_item" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerdaydetail"
@@ -88,7 +88,7 @@
                     android:layout_marginEnd="0dp"
                     android:orientation="horizontal"
                     tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/weekly_detail_weather" />
+                    tools:listitem="@layout/forecast_item" />
             </RelativeLayout>
         </androidx.core.widget.NestedScrollView>
 

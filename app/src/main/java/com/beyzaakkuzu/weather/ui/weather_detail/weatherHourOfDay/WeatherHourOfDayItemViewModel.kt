@@ -5,7 +5,6 @@ import com.beyzaakkuzu.weather.core.BaseViewModel
 import com.beyzaakkuzu.weather.domain.model.ListItem
 import javax.inject.Inject
 
-class WeatherHourOfDayItemViewModel @Inject internal constructor():BaseViewModel(){
-    val item = ObservableField<ListItem>()
-
+class WeatherHourOfDayItemViewModel @Inject internal constructor() : BaseViewModel() {
+    var item = ObservableField<ListItem>()
 }
