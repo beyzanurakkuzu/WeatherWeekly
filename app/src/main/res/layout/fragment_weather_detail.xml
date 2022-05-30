@@ -31,7 +31,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="10dp"
                 android:transitionName="@{String.format(@string/cardView, viewModel.weatherItem.getDay())}"
-                tools:backgroundTint="@color/mainTextColor">
+                tools:backgroundTint="@color/white">
 
                 <androidx.core.widget.NestedScrollView
                     android:id="@+id/scrollView"
@@ -51,12 +51,12 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:layout_marginEnd="24dp"
-                            android:backgroundTint="@color/mainTextColor">
+                            android:backgroundTint="@color/white">
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/recyclerViewHourOfDay"
                                 android:layout_width="wrap_content"
-                                android:layout_height="170dp"
+                                android:layout_height="200dp"
                                 android:layout_margin="0dp"
                                 android:orientation="horizontal"
                                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

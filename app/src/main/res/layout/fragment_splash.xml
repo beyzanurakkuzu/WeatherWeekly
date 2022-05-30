@@ -68,7 +68,7 @@
             android:src="@drawable/bulut"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonExplore"
+            android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
@@ -78,7 +78,7 @@
             android:gravity="center"
             android:paddingStart="60dp"
             android:paddingEnd="60dp"
-            android:text="Explore"
+            android:text="Welcome"
             android:textAllCaps="true"
             android:textColor="@android:color/black"
             android:textSize="16sp"

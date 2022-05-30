@@ -1,60 +1,104 @@
 package com.beyzaakkuzu.weather.ui.dashboard
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.transition.TransitionInflater
+import androidx.navigation.fragment.FragmentNavigator
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.beyzaakkuzu.weather.R
+import com.beyzaakkuzu.weather.core.BaseFragment
+import com.beyzaakkuzu.weather.databinding.FragmentDashboardBinding
+import com.beyzaakkuzu.weather.domain.model.ListItem
+import com.beyzaakkuzu.weather.domain.usecase.CurrentWeatherUseCase
+import com.beyzaakkuzu.weather.domain.usecase.ForecastUseCase
+import com.beyzaakkuzu.weather.other.Constants
+import com.beyzaakkuzu.weather.ui.dashboard.forecast.ForecastAdapter
+import com.beyzaakkuzu.weather.ui.main.MainActivity
+import com.beyzaakkuzu.weather.utils.extensions.isNetworkAvailable
+import com.beyzaakkuzu.weather.utils.extensions.observeWith
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class DashboardFragment : BaseFragment<DashboardViewModel, FragmentDashboardBinding>(
+    R.layout.fragment_dashboard, DashboardViewModel::class.java
+) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [DashboardFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class DashboardFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    override fun init() {
+        super.init()
+        initForecastAdapter()
+        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(
+            R.transition.move
+        )
+        val lat: String? = binding.viewModel?.sharedPreferences?.getString(Constants.Coords.LAT, "")
+        val lon: String? = binding.viewModel?.sharedPreferences?.getString(Constants.Coords.LON, "")
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashboard, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DashboardFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DashboardFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        if (lat?.isNotEmpty() == true && lon?.isNotEmpty() == true) {
+            binding.viewModel?.setCurrentWeatherParams(
+                CurrentWeatherUseCase.CurrentWeatherParams(
+                    lat, lon, isNetworkAvailable(requireContext()),
+                    Constants.Coords.METRIC
+                )
+            )
+            binding.viewModel?.setForecastParams(
+                ForecastUseCase.ForecastParams(
+                    lat, lon, isNetworkAvailable(requireContext()),
+                    Constants.Coords.METRIC
+                )
+            )
+            binding.viewModel?.getForecastViewState()?.observeWith(viewLifecycleOwner) {
+                with(binding) {
+                    viewState = it
+                    it.data?.list?.let { forecast ->
+                        initForecast(forecast)
+                    }
+                    (activity as MainActivity).viewModel.toolbarTitle.set( //toolbar: seçilen şehir veya ülkenin ismi buraya yazılır
+                        it.data?.city?.getCityAndCountry()
+                    )
                 }
             }
+            binding.viewModel?.getCurrentWeatherViewState()?.observeWith(
+                viewLifecycleOwner
+            ) {
+                with(binding) {
+                    containerForecast.viewState = it
+                }
+            }
+        }
+
+
+    }
+
+    private fun initForecastAdapter() {
+        val adapter = ForecastAdapter { item, cardView, forecastIcon, dayOfWeek, tempMaxMin ->
+            val action =
+                DashboardFragmentDirections.actionDashboardFragmentToWeatherDetailFragment(
+                    item
+                )
+            findNavController()
+                .navigate(
+                    action,
+                    FragmentNavigator.Extras.Builder()
+                        .addSharedElements(
+                            mapOf(
+                                cardView to cardView.transitionName,
+                                forecastIcon to forecastIcon.transitionName,
+                                dayOfWeek to dayOfWeek.transitionName,
+                                tempMaxMin to tempMaxMin.transitionName
+                            )
+                        )
+                        .build()
+                )
+        }
+        binding.recyclerdaydetail.adapter = adapter
+        binding.recyclerdaydetail.layoutManager = LinearLayoutManager(
+            context, LinearLayoutManager.VERTICAL, false
+        )
+        postponeEnterTransition()
+        binding.recyclerdaydetail.viewTreeObserver
+            .addOnPreDrawListener {
+                startPostponedEnterTransition()
+                true
+            }
+    }
+
+    private fun initForecast(list: List<ListItem>) {
+        (binding.recyclerdaydetail.adapter as ForecastAdapter).submitList(list)
     }
 }

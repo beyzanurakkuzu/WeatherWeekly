@@ -1,60 +1,137 @@
 package com.beyzaakkuzu.weather.ui.splash
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.graphics.Color
+import androidx.navigation.fragment.findNavController
 import com.beyzaakkuzu.weather.R
+import com.beyzaakkuzu.weather.core.BaseFragment
+import com.beyzaakkuzu.weather.databinding.FragmentSplashBinding
+import com.beyzaakkuzu.weather.other.Constants
+import com.beyzaakkuzu.weather.utils.extensions.hide
+import com.beyzaakkuzu.weather.utils.extensions.show
+import com.mikhaellopez.rxanimation.*
+import dagger.hilt.android.AndroidEntryPoint
+import io.reactivex.rxjava3.disposables.CompositeDisposable
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+@AndroidEntryPoint
+class SplashFragment : BaseFragment<SplashViewModel,FragmentSplashBinding>(
+    R.layout.fragment_splash,SplashViewModel::class.java
+) {
+    var disposable = CompositeDisposable()
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SplashFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class SplashFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    override fun init(){
+       super.init()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+        if (binding.viewModel?.sharedPreferences?.getString(Constants.Coords.LON,
+           "").isNullOrEmpty()){
+
+            binding.button.show()
+            binding.viewModel?.navigate =false
+        }else{
+            binding.button.hide()
+            binding.viewModel?.navigate =true
+        }
+        binding.viewModel?.navigate?.let { startSplashAnimation(it) }
+        binding.button.setOnClickListener{
+            binding.viewModel?.navigate?.let {
+                it ->endSplashAnimation(it)
+            }
+        }
+        binding.rootView.setOnClickListener {
+            binding.viewModel?.navigate?.let { it1-> endSplashAnimation(it1) }
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_splash, container, false)
-    }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SplashFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SplashFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
+    private fun startSplashAnimation(navigate: Boolean) {
+        disposable.add(
+            RxAnimation.sequentially(
+                RxAnimation.together(
+                    binding.imageViewBottomDrawable.translationY(500f),
+                    binding.imageViewEllipse.fadeOut(0L),
+                    binding.imageViewBottomDrawable.fadeOut(0L),
+                    binding.imageViewBigCloud.translationX(-500F, 0L),
+                    binding.imageViewSmallCloud.translationX(500f, 0L),
+                    binding.imageViewBottomDrawableShadow.translationY(500f),
+                    binding.imageViewMainCloud.fadeOut(0L),
+                    binding.button.fadeOut(0L),
+                    binding.imageViewBottomDrawableShadow.fadeOut(0L)
+                ),
+
+                RxAnimation.together(
+                    binding.imageViewBottomDrawable.fadeIn(1000L),
+                    binding.imageViewBottomDrawable.translationY(-1f),
+                    binding.imageViewBottomDrawableShadow.fadeIn(1250L),
+                    binding.imageViewBottomDrawableShadow.translationY(-1f)
+                ),
+
+                RxAnimation.together(
+                    binding.imageViewEllipse.fadeIn(1000L),
+                    binding.imageViewEllipse.translationY(-50F, 1000L)
+                ),
+
+                RxAnimation.together(
+                    binding.imageViewBigCloud.translationX(-15f, 1000L),
+                    binding.imageViewSmallCloud.translationX(25f, 1000L)
+                ),
+
+                binding.imageViewMainCloud.fadeIn(500L),
+                binding.button.fadeIn(1000L)
+            ).doOnTerminate {
+                findNavController().graph.setStartDestination(R.id.dashboardFragment)
+                if (navigate) {
+                    endSplashAnimation(navigate)
                 }
             }
+                .subscribe()
+        )
+    }
+
+    private fun endSplashAnimation(navigateToDashboard: Boolean) {
+        disposable.add(
+            RxAnimation.sequentially(
+                RxAnimation.together(
+                    binding.imageViewBottomDrawable.fadeOut(300L),
+                    binding.imageViewBottomDrawable.translationY(100f),
+                    binding.imageViewBottomDrawableShadow.fadeOut(300L),
+                    binding.imageViewBottomDrawableShadow.translationY(100f)
+                ),
+
+                RxAnimation.together(
+                    binding.imageViewEllipse.fadeOut(300L),
+                    binding.imageViewEllipse.translationY(500F, 300L)
+                ),
+
+                RxAnimation.together(
+                    binding.imageViewBigCloud.translationX(500f, 300L),
+                    binding.imageViewSmallCloud.translationX(-500f, 300L)
+                ),
+
+                binding.imageViewMainCloud.fadeOut(300L),
+                binding.button.fadeOut(300L),
+                binding.rootView.backgroundColor(
+                    Color.parseColor("#5D50FE"),
+                    Color.parseColor("#FFFFFF"),
+                    duration = 750L
+                )
+            )
+                .doOnTerminate {
+                    findNavController().graph.setStartDestination(R.id.dashboardFragment) // Little bit tricky solution :)
+                    if (navigateToDashboard) {
+                        navigate(R.id.action_splashFragment_to_dashboardFragment)
+                    } else {
+                        navigate(R.id.action_splashFragment_to_searchFragment)
+                    }
+                }
+                .subscribe()
+
+        )
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        disposable.clear()
     }
 }
+
+

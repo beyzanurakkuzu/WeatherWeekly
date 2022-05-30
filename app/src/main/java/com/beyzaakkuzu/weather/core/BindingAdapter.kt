@@ -8,6 +8,7 @@ import androidx.databinding.BindingAdapter
 import com.beyzaakkuzu.weather.R
 import com.beyzaakkuzu.weather.utils.extensions.hide
 import com.beyzaakkuzu.weather.utils.extensions.show
+import com.squareup.picasso.Picasso
 
 @BindingAdapter("app:visibility")
 fun setVisibility(view: View, isVisible: Boolean) {

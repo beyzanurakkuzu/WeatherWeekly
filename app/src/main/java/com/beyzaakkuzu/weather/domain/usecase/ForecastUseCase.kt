@@ -7,12 +7,12 @@ import com.beyzaakkuzu.weather.other.Constants
 import com.beyzaakkuzu.weather.repository.ForecastRepository
 import com.beyzaakkuzu.weather.ui.dashboard.ForecastMapper
 import com.beyzaakkuzu.weather.ui.dashboard.ForecastViewState
-import com.beyzaakkuzu.weather.utils.Mapper
 import com.beyzaakkuzu.weather.utils.UseCaseLiveData
 import com.beyzaakkuzu.weather.utils.domain.Resource
 import javax.inject.Inject
 
-class ForecastUseCase @Inject internal constructor(private val repository: ForecastRepository) : UseCaseLiveData<ForecastViewState, ForecastUseCase.ForecastParams, ForecastRepository>() {
+class ForecastUseCase @Inject internal constructor(
+    private val repository: ForecastRepository) : UseCaseLiveData<ForecastViewState, ForecastUseCase.ForecastParams, ForecastRepository>() {
 
     override fun getRepository(): ForecastRepository {
         return repository
@@ -31,7 +31,7 @@ class ForecastUseCase @Inject internal constructor(private val repository: Forec
     }
 
     private fun onForecastResultReady(resource: Resource<ForecastEntity>): ForecastViewState {
-        val mappedList = resource.data?.list?.let { Mapper().map(it) }
+        val mappedList = resource.data?.list?.let { ForecastMapper().map(it) }
         resource.data?.list = mappedList
 
         return ForecastViewState(

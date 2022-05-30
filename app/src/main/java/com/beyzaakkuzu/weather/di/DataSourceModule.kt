@@ -1,5 +1,6 @@
 package com.beyzaakkuzu.weather.di
 
+import com.algolia.search.saas.places.PlacesClient
 import com.beyzaakkuzu.weather.db.dao.CitiesForSearchDAO
 import com.beyzaakkuzu.weather.db.dao.CurrentWeatherDAO
 import com.beyzaakkuzu.weather.db.dao.ForecastDAO

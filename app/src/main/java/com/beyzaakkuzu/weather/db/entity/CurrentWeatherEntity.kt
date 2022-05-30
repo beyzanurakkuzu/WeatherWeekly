@@ -1,6 +1,5 @@
 package com.beyzaakkuzu.weather.db.entity
 
-import android.graphics.Color
 import android.os.Parcelable
 import androidx.room.*
 import com.beyzaakkuzu.weather.domain.model.CurrentWeatherResponse
@@ -74,15 +73,5 @@ data class CurrentWeatherEntity(
             DayOfWeek.MONDAY
         }
     }
-    fun getColor():Int{
-        return when (dt?.let { getDateTime(it) }){
-            DayOfWeek.MONDAY -> Color.parseColor("#4ECB71") //yeşil
-            DayOfWeek.TUESDAY -> Color.parseColor("#FF9A62") //turuncu
-            DayOfWeek.WEDNESDAY -> Color.parseColor("#0D99FF") //mavi
-            DayOfWeek.THURSDAY -> Color.parseColor("#9747FF") //mor
-            DayOfWeek.FRIDAY -> Color.parseColor("#FFEA29") //sarı
-            DayOfWeek.SATURDAY -> Color.parseColor("#0051FF") //kırmızı
-            DayOfWeek.SUNDAY -> Color.parseColor("#174AB7")
-            else -> Color.parseColor("#24B794")        }
-    }
+
 }
