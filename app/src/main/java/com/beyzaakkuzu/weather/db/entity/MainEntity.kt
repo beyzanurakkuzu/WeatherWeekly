@@ -44,6 +44,7 @@ data class MainEntity(
         return temp.toString().substringBefore(".") + "°"
     }
 
+
     fun getHumidityString(): String {
         return humidity.toString() + "°"
     }

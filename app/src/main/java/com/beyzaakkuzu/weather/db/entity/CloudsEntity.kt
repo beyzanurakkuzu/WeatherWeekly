@@ -18,6 +18,6 @@ class CloudsEntity(
     constructor(
         clouds: Clouds
     ):this(
-        all =clouds?.all?: 0
+        all = clouds.all ?: 0
     )
 }

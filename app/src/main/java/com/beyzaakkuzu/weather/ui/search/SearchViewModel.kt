@@ -30,7 +30,7 @@ class SearchViewModel  @Inject internal constructor(
         }
         searchParams.postValue(params)
     }
-    fun saveCoordsToSharedPref(coordEntity: CoordEntity): Single<String>?
+    fun saveCoordsToSharedPref(coordEntity: CoordEntity): Single<String>
     {
         return Single.create<String>{
             pref.edit().putString(Constants.Coords.LAT,coordEntity.lat.toString()).apply()

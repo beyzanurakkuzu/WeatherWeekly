@@ -14,7 +14,7 @@ class SearchCitiesUseCase @Inject internal constructor(
 ) : UseCaseLiveData<SearchViewState, SearchCitiesUseCase.SearchCitiesParams, SearchCitiesRepository>() {
     override fun getRepository(): SearchCitiesRepository = repo
 
-    override fun buildUseCaseObservable(params: SearchCitiesUseCase.SearchCitiesParams?): LiveData<SearchViewState> {
+    override fun buildUseCaseObservable(params: SearchCitiesParams?): LiveData<SearchViewState> {
 
         return repo.loadCitiesByCityName(
             cityName = params?.city ?: ""

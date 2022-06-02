@@ -15,7 +15,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 @SuppressLint("WrongThread")
-abstract class NetworkBoundResource<ResultType,RequestType>
+abstract class NetworkBoundResource<ResultType,RequestType : Any>
 @MainThread internal constructor(
   ) {
 

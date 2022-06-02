@@ -10,15 +10,6 @@ import com.beyzaakkuzu.weather.utils.extensions.hide
 import com.beyzaakkuzu.weather.utils.extensions.show
 import com.squareup.picasso.Picasso
 
-@BindingAdapter("app:visibility")
-fun setVisibility(view: View, isVisible: Boolean) {
-    if (isVisible) {
-        view.show()
-    } else {
-        view.hide()
-    }
-}
-
 @BindingAdapter("app:setWeatherIcon")
 fun setWeatherIcon(view: ImageView, iconPath: String?) {
     if (iconPath.isNullOrEmpty()) {
@@ -41,6 +32,14 @@ fun setErrorView(view: View, viewState: BaseViewState?) {
     }
 
     view.setOnClickListener { view.hide() }
+}
+@BindingAdapter("app:visibility")
+fun setVisibility(view: View, isVisible: Boolean) {
+    if (isVisible) {
+        view.show()
+    } else {
+        view.hide()
+    }
 }
 
 @BindingAdapter("app:setErrorText")

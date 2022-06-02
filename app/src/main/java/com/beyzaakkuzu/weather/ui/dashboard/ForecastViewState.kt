@@ -6,8 +6,8 @@ import com.beyzaakkuzu.weather.utils.domain.Status
 
 class ForecastViewState(
     val status: Status,
-    val error:String? =null,
-    val data:ForecastEntity? =null
-):BaseViewState(status,error) {
-    fun getForecast()=data
+    val error: String? = null,
+    val data: ForecastEntity? = null
+) : BaseViewState(status, error) {
+    fun getForecast() = data
 }

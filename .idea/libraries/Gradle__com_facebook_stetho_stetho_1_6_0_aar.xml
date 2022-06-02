@@ -1,14 +1,17 @@
 <component name="libraryTable">
   <library name="Gradle: com.facebook.stetho:stetho:1.6.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2d7c86555eef539dd903bdd4afff5e20/transformed/stetho-1.6.0/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/e15c2ec7cf8c12429d3c7e236cd09b03/transformed/jetified-stetho-1.6.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c4e3302bdca6fa16102928680e32e100/transformed/stetho-1.6.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/11ff2d2db61d0db5b6d96c41f0cfebaf/transformed/stetho-1.6.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2d7c86555eef539dd903bdd4afff5e20/transformed/stetho-1.6.0/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2d7c86555eef539dd903bdd4afff5e20/transformed/stetho-1.6.0/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2d7c86555eef539dd903bdd4afff5e20/transformed/stetho-1.6.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9acbcdfe21ba49c9776cd8839da88104/transformed/jetified-stetho-1.6.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/8ea1544406f4f2ef06a252cd40ff1eef/transformed/jetified-stetho-1.6.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/e15c2ec7cf8c12429d3c7e236cd09b03/transformed/jetified-stetho-1.6.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e15c2ec7cf8c12429d3c7e236cd09b03/transformed/jetified-stetho-1.6.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e15c2ec7cf8c12429d3c7e236cd09b03/transformed/jetified-stetho-1.6.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.stetho/stetho/1.6.0/2a8efb204d6774f1c79fc17c5fae5c8b1df74eb2/stetho-1.6.0-javadoc.jar!/" />

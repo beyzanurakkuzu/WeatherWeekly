@@ -22,7 +22,7 @@ class SearchCitiesRepository @Inject constructor(
         return object : NetworkBoundResource<List<CitiesForSearchEntity>, Search>() {
 
             override fun shouldFetch(data: List<CitiesForSearchEntity>): Boolean {
-                return data == null || data.isEmpty()
+                return data.isEmpty()
             }
 
             override fun saveCallResult(item: Search) = sl.insertCities(item)

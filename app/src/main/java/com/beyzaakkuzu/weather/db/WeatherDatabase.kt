@@ -17,7 +17,7 @@ import com.beyzaakkuzu.weather.utils.typeConventer.DataConverter
     CurrentWeatherEntity::class,
     CitiesForSearchEntity::class
     ]
-, version = 2)
+, version = 1)
 @TypeConverters(DataConverter::class)
 abstract class WeatherDatabase:RoomDatabase() {
     abstract fun forecastDao():ForecastDAO

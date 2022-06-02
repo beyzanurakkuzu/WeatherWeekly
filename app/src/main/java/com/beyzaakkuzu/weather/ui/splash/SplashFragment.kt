@@ -33,7 +33,7 @@ class SplashFragment : BaseFragment<SplashViewModel,FragmentSplashBinding>(
         binding.viewModel?.navigate?.let { startSplashAnimation(it) }
         binding.button.setOnClickListener{
             binding.viewModel?.navigate?.let {
-                it ->endSplashAnimation(it)
+                item ->endSplashAnimation(item)
             }
         }
         binding.rootView.setOnClickListener {

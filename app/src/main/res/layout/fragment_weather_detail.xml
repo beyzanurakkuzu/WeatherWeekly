@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
-    tools:context=".ui.weather_detail.WeatherDetailFragment"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    >
 
     <data>
+        <variable
+            name="viewModel2"
+            type="com.beyzaakkuzu.weather.ui.dashboard.forecast.ForecastItemViewModel" />
+
         <variable
             name="viewModel"
             type="com.beyzaakkuzu.weather.ui.weather_detail.WeatherDetailViewModel" />
@@ -15,57 +18,117 @@
         android:id="@+id/rootView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:fitsSystemWindows="true">
+        android:background="@color/white">
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/coordinatorLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardViewTv"
+            android:layout_width="1000dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="0dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:transitionName="@{String.format(@string/cardView, viewModel2.item.getDay())}"
+            tools:backgroundTint="#161C5E">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardView"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="10dp"
-                android:transitionName="@{String.format(@string/cardView, viewModel.weatherItem.getDay())}"
-                tools:backgroundTint="@color/white">
+                android:layout_height="wrap_content">
 
-                <androidx.core.widget.NestedScrollView
-                    android:id="@+id/scrollView"
+                <ImageView
+                    android:id="@+id/path"
+                    android:layout_width="13dp"
+                    android:layout_height="10dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="17dp"
+                    android:alpha="0.5"
+                    android:background="@drawable/path" />
+
+                <TextView
+                    android:id="@+id/textViewDayOfWeek"
+                    android:layout_width="107dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="252dp"
+                    android:text="@{viewModel2.item.getDay()}"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:transitionName="@{String.format(@string/dayOfWeek, viewModel2.item.getDay())}"
+                    tools:text="Monday" />
+
+                <ImageView
+                    android:id="@+id/imageViewForecastIcon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="-210dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@+id/textViewDayOfWeek"
+                    android:transitionName="@{String.format(@string/forecastIcon, viewModel2.item.getDay())}"
+                    app:setWeatherIcon="@{viewModel2.item.getWeatherItem().icon}"
+                    tools:src="@drawable/ic_splash_big_cloud" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutTempMaxMin"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="97dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@+id/imageViewForecastIcon"
+                    android:orientation="horizontal"
+                    android:transitionName="@{String.format(@string/tempMaxMin, viewModel2.item.getDay())}">
 
-                    <RelativeLayout
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@android:color/transparent">
+                        android:layout_marginEnd="12dp"
+                        android:text="@{viewModel2.item.main.getTempMinString()}"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:text="24°" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="@{viewModel2.item.main.getTempMaxString()}"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:text="56°" />
+                </LinearLayout>
 
-                        <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/cardViewHourOfDayContainer"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="24dp"
-                            android:backgroundTint="@color/white">
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/recyclerViewHourOfDay"
-                                android:layout_width="wrap_content"
-                                android:layout_height="200dp"
-                                android:layout_margin="0dp"
-                                android:orientation="horizontal"
-                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                                tools:listitem="@layout/forecast_item" />
-                        </com.google.android.material.card.MaterialCardView>
+        <RelativeLayout
+            android:id="@+id/daysClickId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cardViewTv"
+            android:layout_marginVertical="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="50dp">
 
-                    </RelativeLayout>
-                </androidx.core.widget.NestedScrollView>
-            </com.google.android.material.card.MaterialCardView>
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewHourOfDay"
+                android:layout_width="wrap_content"
+                android:layout_height="140dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="#161C5E"
+                android:orientation="horizontal"
+                tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/hour_of_day_weather_item" />
+        </RelativeLayout>
     </RelativeLayout>
 </layout>

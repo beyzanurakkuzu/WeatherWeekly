@@ -41,8 +41,8 @@
                     android:checkable="false"
                     android:checked="true"
                     android:clickable="false"
-                    android:textAlignment="center"
                     android:text="@string/today"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     app:chipBackgroundColor="#3A393C" />
 
@@ -57,19 +57,18 @@
                     android:layout_marginEnd="16dp" />
 
                 <ProgressBar
-                    android:id="@+id/progressBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    app:visibility="@{viewState.isLoading()}" />
-
+                    android:layout_margin="24dp"
+                    app:visibility="@{viewState.loading}" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclertodayhour"
                     android:layout_width="wrap_content"
                     android:layout_height="150dp"
                     android:layout_below="@+id/container_forecast"
-                    android:layout_marginStart="2dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
                     android:orientation="horizontal"
                     tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -88,7 +87,7 @@
                     android:layout_marginEnd="2dp"
                     android:orientation="horizontal"
                     tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/forecast_item" />
+                    tools:listitem="@layout/fragment_weather_detail" />
             </RelativeLayout>
         </androidx.core.widget.NestedScrollView>
 
