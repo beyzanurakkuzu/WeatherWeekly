@@ -7,8 +7,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bb9d76373920bde7acb44697a6487ac1/transformed/jetified-rxanimation-2.1.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/4426d596273aa28428da3919df106943/transformed/jetified-rxanimation-2.1.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fa45d74fefe4578329a22ea42fc4758b/transformed/jetified-rxanimation-2.1.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fa45d74fefe4578329a22ea42fc4758b/transformed/jetified-rxanimation-2.1.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/fa45d74fefe4578329a22ea42fc4758b/transformed/jetified-rxanimation-2.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/04d2d30ee4f7603393946c2f438d7595/transformed/jetified-rxanimation-2.1.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/04d2d30ee4f7603393946c2f438d7595/transformed/jetified-rxanimation-2.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/04d2d30ee4f7603393946c2f438d7595/transformed/jetified-rxanimation-2.1.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

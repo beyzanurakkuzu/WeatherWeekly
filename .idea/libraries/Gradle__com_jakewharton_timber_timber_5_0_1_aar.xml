@@ -6,9 +6,10 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/3a231c4e1fd506e4e2688d4b45ae7e88/transformed/timber-5.0.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/cdce41a82b4ccf3d7b580082870820d1/transformed/jetified-timber-5.0.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/02b6f8c6c822280ce701260814d4a0ac/transformed/jetified-timber-5.0.1/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/283d8258ced198cd0bf81c4825dcaf35/transformed/jetified-timber-5.0.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/283d8258ced198cd0bf81c4825dcaf35/transformed/jetified-timber-5.0.1/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/283d8258ced198cd0bf81c4825dcaf35/transformed/jetified-timber-5.0.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/e83c1768c27dc16f636a6d05e9b6d8be/transformed/jetified-timber-5.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e83c1768c27dc16f636a6d05e9b6d8be/transformed/jetified-timber-5.0.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e83c1768c27dc16f636a6d05e9b6d8be/transformed/jetified-timber-5.0.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton.timber/timber/5.0.1/264c7cc6aa44f3b596075cbb19b2712f364d4c7e/timber-5.0.1-javadoc.jar!/" />

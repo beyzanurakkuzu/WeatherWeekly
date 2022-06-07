@@ -1,7 +1,6 @@
 package com.beyzaakkuzu.weather.domain.model
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.os.Parcelable
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
