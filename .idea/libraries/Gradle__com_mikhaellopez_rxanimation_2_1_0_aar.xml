@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="Gradle: com.mikhaellopez:rxanimation:2.1.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/240e8a393d9a43239c5c73bcd8cb392b/transformed/rxanimation-2.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/784457f4add300034d404211029e2f0f/transformed/rxanimation-2.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c08b5790a01e7b33081730375c7bc5c0/transformed/rxanimation-2.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bb9d76373920bde7acb44697a6487ac1/transformed/jetified-rxanimation-2.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/4426d596273aa28428da3919df106943/transformed/jetified-rxanimation-2.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fa45d74fefe4578329a22ea42fc4758b/transformed/jetified-rxanimation-2.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/04d2d30ee4f7603393946c2f438d7595/transformed/jetified-rxanimation-2.1.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/04d2d30ee4f7603393946c2f438d7595/transformed/jetified-rxanimation-2.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/04d2d30ee4f7603393946c2f438d7595/transformed/jetified-rxanimation-2.1.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mikhaellopez/rxanimation/2.1.0/ed8e84b6a5997603513913fdfd783c665ab7793e/rxanimation-2.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

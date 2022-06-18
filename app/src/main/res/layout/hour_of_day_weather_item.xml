@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.beyzaakkuzu.weather.ui.weather_detail.weatherHourOfDay.WeatherHourOfDayItemViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardView"
+            android:layout_width="46dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="40dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:transitionName="@{viewModel.item.getDay()}"
+            app:cardCornerRadius="24dp"
+            tools:backgroundTint="#245197"
+            tools:ignore="TouchTargetSizeCheck">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/textViewTimeOfDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="14dp"
+                    android:text="@{viewModel.item.getHourOfDay()}"
+                    android:textColor="@color/white"
+                    android:textSize="8sp"
+                    android:textStyle="bold"
+                    tools:text="12:00" />
+
+                <ImageView
+                    android:id="@+id/group_4"
+                    android:layout_width="24.02dp"
+                    android:layout_height="24.02dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10.99dp"
+                    android:layout_marginTop="30dp"
+                    android:transitionName="@{String.format(@string/forecastIcon, viewModel.item.getDay())}"
+                    app:setWeatherIcon="@{viewModel.item.getWeatherItem().icon}"
+                    tools:src="@drawable/ic_splash_big_cloud" />
+
+                <TextView
+                    android:id="@+id/some_id"
+                    android:layout_width="0dp"
+                    android:layout_height="18dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="63dp"
+                    android:layout_marginRight="-2dp"
+                    android:gravity="center_horizontal|top"
+                    android:text="@{viewModel.item.main.getTempString()}"
+                    android:textColor="@color/white"
+                    android:transitionName="@{String.format(@string/temp, viewModel.item.getDay())}"
+                    tools:text="23°" />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
